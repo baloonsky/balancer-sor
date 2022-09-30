@@ -17430,8 +17430,8 @@ class SOR {
             tokenPriceService
         );
     }
-    getPools() {
-        return this.poolCacher.getPools();
+    getPools(useBpts) {
+        return this.poolCacher.getPools(useBpts);
     }
     /**
      * fetchPools Retrieves pools information and saves to internal pools cache.

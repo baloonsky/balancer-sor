@@ -294,7 +294,7 @@ declare class SOR {
         poolDataService: PoolDataService,
         tokenPriceService: TokenPriceService
     );
-    getPools(): SubgraphPoolBase[];
+    getPools(useBpts?: boolean): SubgraphPoolBase[];
     /**
      * fetchPools Retrieves pools information and saves to internal pools cache.
      * @returns {boolean} True if pools fetched successfully, False if not.
