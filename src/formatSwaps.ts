@@ -79,6 +79,17 @@ export const formatSequence = (
                 .decimalPlaces(0, 1)
                 .toString();
         }
+        const scalingFactorReturn =
+            swapKind === SwapTypes.SwapExactIn
+                ? swap.tokenOutDecimals
+                : swap.tokenInDecimals;
+
+        const returnScaled = scale(
+            bnum(swap.returnAmount as string),
+            scalingFactorReturn
+        )
+            .decimalPlaces(0, 1)
+            .toString();
 
         const assetInIndex = tokenAddresses.indexOf(swap.tokenIn);
         const assetOutIndex = tokenAddresses.indexOf(swap.tokenOut);
@@ -88,7 +99,7 @@ export const formatSequence = (
             assetOutIndex,
             amount: amountScaled,
             userData: '0x',
-            returnAmount: swap.returnAmount,
+            returnAmount: returnScaled,
         };
     });
 };
