@@ -16382,6 +16382,13 @@ const formatSequence = (swapKind, sequence, tokenAddresses) => {
                 .decimalPlaces(0, 1)
                 .toString();
         }
+        const scalingFactorReturn =
+            swapKind === SwapTypes.SwapExactIn
+                ? swap.tokenOutDecimals
+                : swap.tokenInDecimals;
+        const returnScaled = scale(bnum(swap.returnAmount), scalingFactorReturn)
+            .decimalPlaces(0, 1)
+            .toString();
         const assetInIndex = tokenAddresses.indexOf(swap.tokenIn);
         const assetOutIndex = tokenAddresses.indexOf(swap.tokenOut);
         return {
@@ -16390,7 +16397,7 @@ const formatSequence = (swapKind, sequence, tokenAddresses) => {
             assetOutIndex,
             amount: amountScaled,
             userData: '0x',
-            returnAmount: swap.returnAmount,
+            returnAmount: returnScaled,
         };
     });
 };
