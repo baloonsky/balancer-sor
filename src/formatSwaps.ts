@@ -88,6 +88,7 @@ export const formatSequence = (
             assetOutIndex,
             amount: amountScaled,
             userData: '0x',
+            returnAmount: swap.returnAmount,
         };
     });
 };
