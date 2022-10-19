@@ -13528,6 +13528,7 @@ const formatSwaps$1 = (
                     swapAmount: amounts[i].toString(),
                     tokenInDecimals: path.poolPairData[i].decimalsIn,
                     tokenOutDecimals: path.poolPairData[i].decimalsOut,
+                    returnAmount: amounts[amounts.length - 1].toString(),
                 };
                 pathSwaps.push(swap);
             }
@@ -13549,6 +13550,7 @@ const formatSwaps$1 = (
                     swapAmount: amounts[1].toString(),
                     tokenInDecimals: path.poolPairData[n - 1 - i].decimalsIn,
                     tokenOutDecimals: path.poolPairData[n - 1 - i].decimalsOut,
+                    returnAmount: amounts[0].toString(),
                 };
                 pathSwaps.unshift(swap);
             }
@@ -16388,6 +16390,7 @@ const formatSequence = (swapKind, sequence, tokenAddresses) => {
             assetOutIndex,
             amount: amountScaled,
             userData: '0x',
+            returnAmount: swap.returnAmount,
         };
     });
 };

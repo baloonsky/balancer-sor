@@ -73,6 +73,7 @@ interface Swap {
     maxPrice?: string;
     tokenInDecimals: number;
     tokenOutDecimals: number;
+    returnAmount?: string;
 }
 interface SubgraphPoolBase {
     id: string;
@@ -110,6 +111,7 @@ interface SwapV2 {
     assetOutIndex: number;
     amount: string;
     userData: string;
+    returnAmount?: string;
 }
 interface SwapInfo {
     tokenAddresses: string[];
